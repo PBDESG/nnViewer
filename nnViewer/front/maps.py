@@ -1,7 +1,3 @@
-import random
-
-from nnViewer.front.plotter import plot_transpose
-
 def map_strings_to_colors(strings):
     colors = [
         "#186B66",

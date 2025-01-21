@@ -2,7 +2,6 @@ import torch
 from torch import nn
 import torch.nn.functional as F
 
-
 function_to_wrap = [
     # torch.Tensor
     (torch.Tensor.__add__, torch.Tensor),

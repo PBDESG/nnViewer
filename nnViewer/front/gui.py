@@ -14,7 +14,6 @@ from nnViewer.back.nodes import (ModuleNode, FonctionNode, VarNode, LinearNode, 
                                  AttentionProductNode)
 from nnViewer.front.node_item import ClickableRectItem
 from nnViewer.front.utils import create_centered_text_item, get_tensor_shape_as_string
-from nnViewer.front.plotter import plot_fully_connected
 from nnViewer.front.maps import map_strings_to_colors
 
 FONT = "Courier New"
