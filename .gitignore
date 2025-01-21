@@ -1,0 +1,9 @@
+graphs/
+.idea/
+.venv/
+__pycache__/
+.DS_store
+__pycache__/
+*.pyc
+*.pyo
+ignore/
