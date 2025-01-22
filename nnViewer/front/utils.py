@@ -9,7 +9,7 @@ from PyQt5.QtCore import Qt
 from torch import Tensor
 import torch
 
-from nnViewer.back.nodes import ModuleNode, FonctionNode, VarNode, BMMNode, MulNode, AddNode, ViewNode, \
+from nnViewer.back.nodes import ModuleNode, FunctionNode, VarNode, BMMNode, MulNode, AddNode, ViewNode, \
     ExpandNode, GetItemNode, Conv2dNode, EmbeddingNode, PowNode, MeanNode, StackNode, CatNode, Conv1dNode, ExpNode, \
     DivNode, SumNode, MatMulNode, AttentionProductNode, LinearNode
 
@@ -236,7 +236,7 @@ def get_node_info(node):
             "Node Name": str(node.name),
         }
 
-    elif isinstance(node, FonctionNode):
+    elif isinstance(node, FunctionNode):
         return {
             "Node Name": str(node.name),
         }

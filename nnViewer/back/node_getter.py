@@ -2,7 +2,7 @@ from typing import Dict, Union, Tuple, Set
 
 from torch import Tensor
 
-from nnViewer.back.nodes import VarNode, FonctionNode, Node
+from nnViewer.back.nodes import VarNode, FunctionNode, Node
 from nnViewer.back.utils import split_module_name
 
 def get_node_from_base_tensor(var: Union[Tensor, Tuple[Tensor, ...]],
@@ -35,7 +35,7 @@ def get_node_from_base_tensor(var: Union[Tensor, Tuple[Tensor, ...]],
             nodes.add(VarNode(id=var_id, name=name, variable=var))
             edges.add((var_id, str(id(fn))))
 
-        nodes.add(FonctionNode(id=str(id(fn)), name=str(type(fn).__name__), fonction=fn))
+        nodes.add(FunctionNode(id=str(id(fn)), name=str(type(fn).__name__), function=fn))
 
         if hasattr(fn, 'next_functions'):
             for u in fn.next_functions:

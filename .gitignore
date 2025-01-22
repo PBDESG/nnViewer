@@ -1,10 +1,13 @@
 graphs/
 .idea/
 env/
-
 __pycache__/
 .DS_store
 __pycache__/
 *.pyc
 *.pyo
 ignore/
+setup.py
+pyproject.toml
+nnViewer.egg-info/
+dist/

@@ -50,15 +50,15 @@ class VarNode(Node):
         self.variable = variable
 
 
-class FonctionNode(Node):
+class FunctionNode(Node):
     def __init__(self,
                  id: str,
                  name: str,
-                 fonction: str,
+                 function: str,
                  ):
 
         super().__init__(id, name)
-        self.fonction = fonction
+        self.function = function
 
         self.output = None
         self.input = None
@@ -169,46 +169,46 @@ class EmbeddingNode(ModuleNode):
 
         super().__init__(id, name, input, module, output)
 
-class BMMNode(FonctionNode):
+class BMMNode(FunctionNode):
     def __init__(self,
                  id: str,
                  name: str,
-                 fonction: str,
+                 function: str,
                  mat1: Tensor,
                  mat2: Tensor,
                  output):
 
-        super().__init__(id, name, fonction)
+        super().__init__(id, name, function)
         self.mat2 = mat2
         self.mat1 = mat1
         self.output = output
 
-class MulNode(FonctionNode):
+class MulNode(FunctionNode):
     def __init__(self,
                  id: str,
                  name: str,
-                 fonction: str,
+                 function: str,
                  mat1: Tensor,
                  mat2: Tensor,
                  output: Tensor):
 
-        super().__init__(id, name, fonction)
+        super().__init__(id, name, function)
         self.mat1 = mat1
         self.mat2 = mat2
         self.output = output
 
-class AttentionProductNode(FonctionNode):
+class AttentionProductNode(FunctionNode):
     def __init__(self,
                  id: str,
                  name: str,
-                 fonction: str,
+                 function: str,
                  key: Tensor,
                  query: Tensor,
                  value: Tensor,
                  output: Tensor,
                  mask: Union[Tensor, None]):
 
-        super().__init__(id, name, fonction)
+        super().__init__(id, name, function)
         self.key = key
         self.query = query
         self.value = value
@@ -218,186 +218,186 @@ class AttentionProductNode(FonctionNode):
         self.attention_matrix = query @ key.transpose(-2, -1)
 
 
-class AddNode(FonctionNode):
+class AddNode(FunctionNode):
     def __init__(self,
                  id: str,
                  name: str,
-                 fonction: str,
+                 function: str,
                  mat1: Tensor,
                  mat2: Tensor,
                  output: Tensor):
 
-        super().__init__(id, name, fonction)
+        super().__init__(id, name, function)
         self.mat1 = mat1
         self.mat2 = mat2
         self.output = output
 
-class MatMulNode(FonctionNode):
+class MatMulNode(FunctionNode):
     def __init__(self,
                  id: str,
                  name: str,
-                 fonction: str,
+                 function: str,
                  mat1: Tensor,
                  mat2: Tensor,
                  output: Tensor):
 
-        super().__init__(id, name, fonction)
+        super().__init__(id, name, function)
         self.mat1 = mat1
         self.mat2 = mat2
         self.output = output
 
-class MeanNode(FonctionNode):
+class MeanNode(FunctionNode):
     def __init__(self,
                  id: str,
                  name: str,
                  dim: int,
-                 fonction: str,
+                 function: str,
                  input: Tensor,
                  output: Tensor):
 
-        super().__init__(id, name, fonction)
+        super().__init__(id, name, function)
         self.input = input
         self.dim = dim
         self.output = output
 
-class SumNode(FonctionNode):
+class SumNode(FunctionNode):
     def __init__(self,
                  id: str,
                  name: str,
                  dim: int,
-                 fonction: str,
+                 function: str,
                  input: Tensor,
                  output: Tensor):
 
-        super().__init__(id, name, fonction)
+        super().__init__(id, name, function)
         self.input = input
         self.dim = dim
         self.output = output
 
-class PowNode(FonctionNode):
+class PowNode(FunctionNode):
     def __init__(self,
                  id: str,
                  name: str,
-                 fonction: str,
+                 function: str,
                  input: Tensor,
                  pow_value: float,
                  output: Tensor):
 
-        super().__init__(id, name, fonction)
+        super().__init__(id, name, function)
         self.input = input
         self.pow_value = pow_value
         self.output = output
 
-class SubNode(FonctionNode):
+class SubNode(FunctionNode):
     def __init__(self,
                  id: str,
                  name: str,
-                 fonction: str,
+                 function: str,
                  mat1: Tensor,
                  mat2: Tensor,
                  output: Tensor):
 
-        super().__init__(id, name, fonction)
+        super().__init__(id, name, function)
         self.mat1 = mat1
         self.mat2 = mat2
         self.output = output
 
-class DivNode(FonctionNode):
+class DivNode(FunctionNode):
     def __init__(self,
                  id: str,
                  name: str,
-                 fonction: str,
+                 function: str,
                  mat1: Tensor,
                  mat2: Tensor,
                  output: Tensor):
 
-        super().__init__(id, name, fonction)
+        super().__init__(id, name, function)
         self.mat1 = mat1
         self.mat2 = mat2
         self.output = output
 
-class StackNode(FonctionNode):
+class StackNode(FunctionNode):
     def __init__(self,
                  id: str,
                  name: str,
-                 fonction: str,
+                 function: str,
                  input: Tensor,
                  output: Tensor):
 
-        super().__init__(id, name, fonction)
+        super().__init__(id, name, function)
         self.input = input
         self.output = output
 
-class ViewNode(FonctionNode):
+class ViewNode(FunctionNode):
     def __init__(self,
                  id: str,
                  name: str,
-                 fonction: str,
+                 function: str,
                  input: Tensor,
                  output: Tensor):
 
-        super().__init__(id, name, fonction)
+        super().__init__(id, name, function)
         self.input = input
         self.output = output
 
-class TransposeNode(FonctionNode):
+class TransposeNode(FunctionNode):
     def __init__(self,
                  id: str,
                  name: str,
-                 fonction: str,
+                 function: str,
                  input: Tensor,
                  output: Tensor):
 
-        super().__init__(id, name, fonction)
+        super().__init__(id, name, function)
         self.input = input
         self.output = output
 
-class ExpandNode(FonctionNode):
+class ExpandNode(FunctionNode):
     def __init__(self,
                  id: str,
                  name: str,
-                 fonction: str,
+                 function: str,
                  input: Tensor,
                  output: Tensor):
 
-        super().__init__(id, name, fonction)
+        super().__init__(id, name, function)
         self.input = input
         self.output = output
 
-class ExpNode(FonctionNode):
+class ExpNode(FunctionNode):
     def __init__(self,
                  id: str,
                  name: str,
-                 fonction: str,
+                 function: str,
                  exp_value: Tensor,
                  output: Tensor):
 
-        super().__init__(id, name, fonction)
+        super().__init__(id, name, function)
         self.exp_value = exp_value
         self.output = output
 
-class CatNode(FonctionNode):
+class CatNode(FunctionNode):
     def __init__(self,
                  id: str,
                  name: str,
-                 fonction: str,
+                 function: str,
                  input: Tensor,
                  output: Tensor):
 
-        super().__init__(id, name, fonction)
+        super().__init__(id, name, function)
         self.input = input
         self.output = output
 
-class GetItemNode(FonctionNode):
+class GetItemNode(FunctionNode):
     def __init__(self,
                  id: str,
                  name: str,
-                 fonction: str,
+                 function: str,
                  input: Tensor,
                  output: Tensor,
                  slice: str):
 
-        super().__init__(id, name, fonction)
+        super().__init__(id, name, function)
         self.input = input
         self.output = output
         self.slice = slice

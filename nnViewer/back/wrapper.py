@@ -3,7 +3,7 @@ import warnings
 
 import torch
 
-from nnViewer.back.nodes import Node, AddNode, CatNode, ViewNode, GetItemNode, FonctionNode, MulNode, SubNode, PowNode, \
+from nnViewer.back.nodes import Node, AddNode, CatNode, ViewNode, GetItemNode, FunctionNode, MulNode, SubNode, PowNode, \
     MeanNode, ExpNode, DivNode, SumNode, MatMulNode, AttentionProductNode
 from nnViewer.back.wrapped_function import function_to_wrap
 
@@ -42,7 +42,7 @@ def wrapper(function_name, function):
                     "args": args,
                     "kwargs": kwargs,
                     "grad_fn_created":grad_fns_found[1:],
-                    "node": create_fonction_node(output, args, kwargs, function_name, function)
+                    "node": create_function_node(output, args, kwargs, function_name, function)
                 })
 
         return output
@@ -67,13 +67,13 @@ def unwrap_functions():
             original_function = getattr(module, f"_original_{function_name}")
             setattr(module, function_name, original_function)
 
-def create_fonction_node(output, args, kwargs, function_name, function) -> Node:
+def create_function_node(output, args, kwargs, function_name, function) -> Node:
     grad_fn_id = str(id(output.grad_fn))
 
     common_params = {
         "id": grad_fn_id,
         "name": function_name,
-        "fonction": function,
+        "function": function,
     }
 
     try:
@@ -135,9 +135,9 @@ def create_fonction_node(output, args, kwargs, function_name, function) -> Node:
 
     except:
         warnings.warn(f"Wrapped function {function_name} hasn't found its node")
-        return FonctionNode(**common_params)
+        return FunctionNode(**common_params)
 
-    return FonctionNode(**common_params)
+    return FunctionNode(**common_params)
 
 def format_slice(slice_tuple, tensor_size):
     """

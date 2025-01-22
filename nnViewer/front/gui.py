@@ -8,7 +8,7 @@ from PyQt5.QtCore import QTimer
 
 from nnViewer.back.graph import Graph
 from nnViewer.back.models import PosDataUpperModules
-from nnViewer.back.nodes import (ModuleNode, FonctionNode, VarNode, LinearNode, Node,
+from nnViewer.back.nodes import (ModuleNode, FunctionNode, VarNode, LinearNode, Node,
                                  LayerNormNode, ViewNode, CatNode, AddNode, GetItemNode,
                                  Conv2dNode, MulNode, SubNode, Conv1dNode, DivNode, MatMulNode,
                                  AttentionProductNode)
@@ -142,7 +142,7 @@ class GraphViewer(QMainWindow):
         for node in self.graph.flying_nodes:
             node.color, node.item = self.get_illustration_item(node)
 
-            # if isinstance(node, VarNode) or isinstance(node, FonctionNode):
+            # if isinstance(node, VarNode) or isinstance(node, FunctionNode):
             #     if node.name in function_mapping_plot.keys():
             #         margin = 0
 
@@ -250,7 +250,7 @@ class GraphViewer(QMainWindow):
             item = create_centered_text_item(label_text, QFont(FONT, 12))
             return color, item
 
-        elif isinstance(node, FonctionNode):
+        elif isinstance(node, FunctionNode):
             label_text = node.name
             # if label_text in function_mapping_plot.keys():
             #     item = function_mapping_plot[label_text]()

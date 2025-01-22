@@ -6,7 +6,7 @@ from pygraphviz import AGraph
 from torch import Tensor
 import torch
 
-from nnViewer.back.nodes import Node, VarNode, ModuleNode, FonctionNode
+from nnViewer.back.nodes import Node, VarNode, ModuleNode, FunctionNode
 from nnViewer.back.utils import create_bounding_rectangle, parse_pos
 
 SAVED_PREFIX = "_saved_"
@@ -65,8 +65,8 @@ class Graph():
 
     def delete_nodes_type(self, funcs_to_delete: List[str]) -> None:
         for node in copy(self.nodes):
-            if isinstance(node, FonctionNode):
-                if node.fonction.__class__.__name__ in funcs_to_delete:
+            if isinstance(node, FunctionNode):
+                if node.function.__class__.__name__ in funcs_to_delete:
                     self.remove_node_and_reset_relatives(node)
         self.reset_edges()
 

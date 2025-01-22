@@ -6,7 +6,7 @@ from PyQt5.QtCore import Qt, QTimer, QObject, pyqtSignal, QPropertyAnimation, QR
 from PyQt5.QtGui import QFont, QColor, QPixmap, QPainter, QPainterPath
 from torch import float16
 
-from nnViewer.back.nodes import Conv2dNode, VarNode, ModuleNode, FonctionNode
+from nnViewer.back.nodes import Conv2dNode, VarNode, ModuleNode, FunctionNode
 from nnViewer.front.utils import (get_node_info, get_tensor_shape_as_string,
                                   get_image_from_slice_layout_and_tensor,
                                   set_up_slice_layout_from_tensor)
@@ -179,7 +179,7 @@ class ClickableRectItem(QGraphicsRectItem):
         elif action == info_action:
             self.get_more_information()
         elif action == show_computation_action:
-            if not isinstance(self.node, FonctionNode):
+            if not isinstance(self.node, FunctionNode):
                 self.show_computation()
 
     def show_computation(self):
