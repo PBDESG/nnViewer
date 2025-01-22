@@ -41,9 +41,7 @@ Here's an example of how to use nnViewer with a Hugging Face model:
 from transformers import AutoImageProcessor, AutoModel
 from PIL import Image
 import requests
-
-from nnViewer.back.graph_initializer import wrap_model
-from nnViewer.front.gui import run_gui
+from nnViewer import wrap_model, run_gui
 
 # Load an image
 url = 'http://images.cocodataset.org/val2017/000000039769.jpg'
