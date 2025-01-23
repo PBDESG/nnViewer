@@ -3,6 +3,8 @@
 
 **nnViewer** is a Python library designed to provide an intuitive GUI for visualizing the structure and flow of a `torch.nn.Module`. Whether you're debugging or exploring complex neural networks, nnViewer makes it easier to understand your models.
 
+**[Watch the demo video](https://drive.google.com/file/d/1YUzYWcpsEofURfNiDq7SVexJiN6lWCuu/view?usp=sharing)**
+
 ## Installation
 
 Before installing `nnViewer`, you need to install `graphviz` and its development libraries. You can install them based on your operating system.
